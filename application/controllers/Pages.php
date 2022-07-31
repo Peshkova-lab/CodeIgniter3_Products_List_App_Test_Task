@@ -22,7 +22,6 @@
             $this->load->view('templates/footer', $data);
         }
 
-        
         public function success() {
 
             $data['title'] = "Success!";
@@ -32,32 +31,12 @@
             $this->load->view('templates/footer', $data);
         }
 
-
-        public function getChosenCategory() {
-            if ($this->input->is_ajax_request()) { // just additional, to make sure request is from ajax
-                    $category = $this->input->post('category');
-
-                    if ($category == 0) {
-                        $data['products'] = $this->product_model->get_products();
-                    } else {
-                        $data['products'] = $this->product_model->get_products($category);
-                    }
-
-                    $this->load->view('pages/products_list', $data);
-
-            } 
-        }
-
-        public function get_chosen_status() {
+        public function get_products_by_chosen_filter() {
             if ($this->input->is_ajax_request()) { // just additional, to make sure request is from ajax
                     $status = $this->input->post('status');
                     $category = $this->input->post('category');
 
-                    /*if ($status == '') {
-                        $data['products'] = $this->product_model->get_products_by_status();
-                    } else {
-                      */  $data['products'] = $this->product_model->get_products_by_status($status, $category);
-                    //}
+                    $data['products'] = $this->product_model->get_products_by_status($status, $category);
 
                     $this->load->view('pages/products_list', $data);
 

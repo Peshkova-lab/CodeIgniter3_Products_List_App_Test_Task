@@ -5,20 +5,13 @@ class Product_model extends CI_Model {
         $this->load->database();
     }
 
-    public function get_products($category = FALSE) {
-        if ($category === FALSE) {
-            $query = $this->db->get('product_list');
-            return $query->result_array();
-        }
-
-        $this->db->where('categoryId', $category);
+    public function get_products() {
         $query = $this->db->get('product_list');
         return $query->result_array();
     }
 
     public function get_products_by_status($status = '', $category = 0) {
         if ($status === '' && $category === '0') {
-        
             $query = $this->db->get('product_list');
             return $query->result_array();
         } 
