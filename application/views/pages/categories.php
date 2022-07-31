@@ -1,10 +1,19 @@
 <div class="categories">
 
-<input onClick="change_category(event)" class="category" id="0" value="all" type="radio" name='category'>0 - all</input>
+<input checked="checked" onClick="change_category(event)" class="category" id="0" value="all" type="radio" name='category'>0 - all</input>
 
 <?php foreach ($categories as $category): ?>
         <input onClick="change_category(event)" class="category" id="<?php echo $category['id'] ?>" value="<?php echo $category['name'] ?>" type="radio" name='category'><?php echo $category['id']  . " - " . $category['name'] ?></input>
 <?php endforeach; ?>
+
+<br />
+<br />
+
+<select onchange="change_status(event)" id="status">
+        <option value=''></option>
+        <option value='bought'>bought</option>
+        <option value='not bought'>not bought</option>
+</select>
 
 <br />
 <br />

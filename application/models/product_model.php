@@ -16,6 +16,24 @@ class Product_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function get_products_by_status($status = '', $category = 0) {
+        if ($status === '' && $category === '0') {
+        
+            $query = $this->db->get('product_list');
+            return $query->result_array();
+        } 
+
+        if ($status !== '') {
+            $this->db->where('status', $status);
+        } 
+        if ($category !== '0') {
+            $this->db->where('categoryId', $category);
+        }
+        
+        $query = $this->db->get('product_list');
+        return $query->result_array();
+    }
+
     public function set_product() {
     
         $this->load->helper('url'); 

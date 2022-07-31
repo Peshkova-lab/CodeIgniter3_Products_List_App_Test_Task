@@ -48,6 +48,23 @@
             } 
         }
 
+        public function get_chosen_status() {
+            if ($this->input->is_ajax_request()) { // just additional, to make sure request is from ajax
+                    $status = $this->input->post('status');
+                    $category = $this->input->post('category');
+
+                    /*if ($status == '') {
+                        $data['products'] = $this->product_model->get_products_by_status();
+                    } else {
+                      */  $data['products'] = $this->product_model->get_products_by_status($status, $category);
+                    //}
+
+                    $this->load->view('pages/products_list', $data);
+
+            } 
+        }
+
+
         public function create_category() {
 
             $this->load->helper('form'); //Загрузка хелпера форм
