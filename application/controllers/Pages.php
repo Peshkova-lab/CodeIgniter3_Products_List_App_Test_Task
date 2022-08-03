@@ -1,10 +1,11 @@
 <?php 
     class Pages extends CI_Controller {
 
+        //Конструктор загружает модели для дальнейшего взаимодействия с таблицами базы данных
         public function __construct() {
             parent::__construct();
-            $this->load->model('category_model');
-            $this->load->model('product_model');
+            $this->load->model('category_model'); //Модель категорий. Таблица category
+            $this->load->model('product_model'); //Модель списка продуктов. Таблица product_list
         }
 
         public function view($page = 'home') {
@@ -16,10 +17,10 @@
             $this->load->view('templates/header', $data);
             $this->load->view('pages/'.$page);
             $this->load->view('pages/categories', $data);
-            //$this->load->view('pages/products_list', $data);
             $this->load->view('templates/footer', $data);
         }
 
+        //Загрузка страницы успеха, при добавлении новых элементов таблицы. Используется при добавлении новых категорий и элементов списка. 
         public function success() {
 
             $data['title'] = "Success!";
@@ -29,8 +30,10 @@
             $this->load->view('templates/footer', $data);
         }
 
+        //Функия отвечает за фильтрацию элементов списка. Получает данные из считывателя событий, с помощью ajax запроса.
+        //Полученные данные передаються в модель. 
         public function get_products_by_chosen_filter() {
-            if ($this->input->is_ajax_request()) { // just additional, to make sure request is from ajax
+            if ($this->input->is_ajax_request()) { 
                     $status = $this->input->post('status');
                     $category = $this->input->post('category');
 
@@ -41,7 +44,7 @@
             } 
         }
 
-
+        //Функция создания категории. Выполняет валидацию форм, в случае успешной проверки, вызывается функция модели. 
         public function create_category() {
 
             $this->load->helper('form'); //Загрузка хелпера форм
@@ -65,6 +68,7 @@
 
         }
         
+        //Функция создания элемента списка. Выполняет валидацию формы, в случае успеха, вызывает функцию модели.
         public function create_product() {
 
             $this->load->helper('form'); //Загрузка хелпера форм
@@ -75,7 +79,6 @@
 
             $this->form_validation->set_rules('name', 'Name field required!', 'required');
             $this->form_validation->set_rules('count', 'Count field required!', 'required');
-            //$this->form_validation->set_rules('category_selected', 'Category field required!', 'required');
 
                 //Условие на проверку валидации
             if ($this->form_validation->run() === FALSE) {
@@ -90,15 +93,16 @@
             }
         }
 
+        // Функция удаления элемента списка, принимает данные от ajax запроса, и передает их в модель данных.
         public function delete_product() {
             
-            if ($this->input->is_ajax_request()) { // just additional, to make sure request is from ajax
-                    
+            if ($this->input->is_ajax_request()) {
                     $id = $this->input->post('id');
                     $this->product_model->delete_product($id);
             } 
         }
 
+        // Функция изменения статуса элемента списка. Принимает данные от ajax запроса. 
         public function change_status() {
             if ($this->input->is_ajax_request()) {  
                 $id = $this->input->post('id');

@@ -6,11 +6,13 @@ class Category_model extends CI_Model {
         $this->load->database();
     }
 
+    // Запрос на получение всех категорий в таблице 
     public function get_categories() {
         $query = $this->db->get('category');
         return $query->result_array();
     }
 
+    // Создание новой категории
     public function set_category() {
 
         $data = array(
@@ -18,6 +20,5 @@ class Category_model extends CI_Model {
         );
 
         return $this->db->insert('category', $data);
-
     }
 }
