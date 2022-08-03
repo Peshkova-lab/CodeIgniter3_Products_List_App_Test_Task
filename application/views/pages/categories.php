@@ -1,9 +1,9 @@
 <div class="categories">
 
-<input checked="checked" onClick="change_filters_value()" class="category" id="0" value="all" type="radio" name='category'>0 - all</input>
+<input checked="checked" onClick="change_filters_value()" class="category" id="0" value="all" type="radio" name='category'>all</input>
 
 <?php foreach ($categories as $category): ?>
-        <input onClick="change_filters_value()" class="category" id="<?php echo $category['id'] ?>" value="<?php echo $category['name'] ?>" type="radio" name='category'><?php echo $category['id']  . " - " . $category['name'] ?></input>
+        <input onClick="change_filters_value()" class="category" id="<?php echo $category['id'] ?>" value="<?php echo $category['name'] ?>" type="radio" name='category'><?php echo $category['name'] ?></input>
 <?php endforeach; ?>
 
 <br />

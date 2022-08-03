@@ -8,9 +8,7 @@
         }
 
         public function view($page = 'home') {
-        
-           //$data['products'] = $this->product_model->get_products();
-
+    
            $data['categories'] = $this->category_model->get_categories();
 
             $data['title'] = ucfirst($page); //Делает первую букву заглавной
@@ -62,7 +60,7 @@
             }
             else {
                 $this->category_model->set_category();
-                $this->load->view('success');
+                $this->load->view('pages/success');
             }
 
         }
@@ -88,7 +86,7 @@
             }
             else {
                 $this->product_model->set_product();
-                $this->load->view('success');
+                $this->load->view('pages/success');
             }
         }
 
@@ -101,6 +99,11 @@
             } 
         }
 
-
-
+        public function change_status() {
+            if ($this->input->is_ajax_request()) {  
+                $id = $this->input->post('id');
+                $status = $this->input->post('status');
+                $this->product_model->change_status($id, $status);
+            } 
+        }
     }

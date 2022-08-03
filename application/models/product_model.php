@@ -51,4 +51,16 @@ class Product_model extends CI_Model {
         $this->db->where('id', $id);
         $this->db->delete('product_list');
     }
+
+    public function change_status($id, $status) {
+        if ($status == 'true') {
+            $this->db->set('status', 'bought');
+        } else {
+            $this->db->set('status', 'not bought');
+        }
+
+        $this->db->where('id', $id);
+        $this->db->update('product_list');
+
+     }
 }
