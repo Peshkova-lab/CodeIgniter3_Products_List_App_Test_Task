@@ -20,16 +20,6 @@
             $this->load->view('templates/footer', $data);
         }
 
-        //Загрузка страницы успеха, при добавлении новых элементов таблицы. Используется при добавлении новых категорий и элементов списка. 
-        public function success() {
-
-            $data['title'] = "Success!";
-
-            $this->load->view('templates/header', $data);
-            $this->load->view('pages/success');
-            $this->load->view('templates/footer', $data);
-        }
-
         //Функия отвечает за фильтрацию элементов списка. Получает данные из считывателя событий, с помощью ajax запроса.
         //Полученные данные передаються в модель. 
         public function get_products_by_chosen_filter() {
@@ -63,7 +53,9 @@
             }
             else {
                 $this->category_model->set_category();
+                $this->load->view('templates/header', $data);
                 $this->load->view('pages/success');
+                $this->load->view('templates/footer', $data);
             }
 
         }
@@ -89,7 +81,9 @@
             }
             else {
                 $this->product_model->set_product();
+                $this->load->view('templates/header', $data);
                 $this->load->view('pages/success');
+                $this->load->view('templates/footer', $data);
             }
         }
 

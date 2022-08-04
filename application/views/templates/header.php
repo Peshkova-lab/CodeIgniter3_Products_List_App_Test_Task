@@ -7,8 +7,7 @@
 
         <script type = 'text/javascript' src = "<?php echo base_url(); 
         ?>assets/js/jquery-3.6.0.min.js"></script>
-
-
     </head>
     <body class='testCSS'>
+        <div>
             <h1><?php echo $title ?></h1>

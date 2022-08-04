@@ -2,7 +2,5 @@
 
 <br />
 <br />
-<a href="<?php echo base_url().'index.php/pages/' ?>" >
-<button id="back_btn" >Back</button> 
-</a>
+<a href="<?php echo base_url().'index.php/pages/' ?>" >Back</a>
 <br /> <br />

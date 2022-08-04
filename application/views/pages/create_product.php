@@ -1,5 +1,5 @@
-<h2><?php echo $title ?></h2>
 
+<div class="create_form">
 <?php 
 //Функция сообщает об ошибках полученных из валидации форм
 echo validation_errors(); ?>
@@ -8,11 +8,10 @@ echo validation_errors(); ?>
 //Функция предусмотрена в хелпере форм и предоставляет элеименты формы с добавленными дополнительными функциональностями.
 echo form_open('pages/create_product'); ?>
 
-<label for="name">Name</label>
+<label for="name">Name: </label>
 <textarea name="name"></textarea><br />
 
-
-<label for="count">Count</label>
+<label for="count">Count: </label>
 <input type="number" name="count" /><br/>
 
 <select name="select_category">
@@ -22,6 +21,8 @@ echo form_open('pages/create_product'); ?>
 <?php endforeach; ?>
 </select>
 
-<input type="submit" name="submit" value="Create new product" />
+<br /><br />
+<input class="create_btn" type="submit" name="submit" value="Create new product" />
 
 </form>
+</div>

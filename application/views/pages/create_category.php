@@ -1,4 +1,4 @@
-<h2><?php echo $title ?></h2>
+<div class="create_form">
 
 <?php 
 //Функция сообщает об ошибках полученных из валидации форм
@@ -11,6 +11,9 @@ echo form_open('pages/create_category'); ?>
 <label for="name">Category name: </label>
 <textarea name="name"></textarea><br />
 
-<input type="submit" name="submit" value="Create category" />
+<br /><br />
+<input class="create_btn" type="submit" name="submit" value="Create category" />
 
 </form>
+
+</div>
