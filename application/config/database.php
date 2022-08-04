@@ -76,9 +76,9 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'root',
-	'database' => 'product_list_db',
+	'username' => 'id19367553_kr_peshkova',
+	'password' => 'Z=XD1Xc73Z)(ni@9',
+	'database' => 'id19367553_products_list_db',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
