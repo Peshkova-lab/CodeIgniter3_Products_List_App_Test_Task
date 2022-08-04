@@ -68,11 +68,8 @@ $config['cookie_samesite'] 	= 'Lax';
 
 $config['standardize_newlines'] = FALSE;
 
-//Здесь изменила конфиги в целях теста. 
-//этот
 $config['global_xss_filtering'] = FALSE;
 
-//и этот
 $config['csrf_protection'] = FALSE;
 $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
